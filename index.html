@@ -7,13 +7,20 @@
 	<title>Portfolio - Romain</title>
 	<link rel="stylesheet" href="styles.css" />
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 </head>
 
 <body>
 	<header>
 		<h1>Portfolio of Romain</h1>
 		<p>Software Development Student at 42 Angoulême</p>
+		<button onclick="toggleTheme()">
+			<i id="theme-icon" class="fas fa-moon"></i> Theme
+		</button>
 	</header>
+
 
 	<main>
 		<section class="about">
@@ -165,6 +172,12 @@
 				</div>
 			</div>
 		</section>
+
+		<section class="github-projects">
+			<div class="section-title">My GitHub Projects</div>
+			<div id="github-projects"></div>
+		</section>
+
 	</main>
 
 	<footer>
@@ -172,6 +185,18 @@
 	</footer>
 
 	<script src="script.js"></script>
+	<script>
+		document.querySelectorAll('section').forEach(section => {
+			section.setAttribute('data-aos', 'fade-up');
+		});
+	</script>
+	<script>
+		AOS.init({
+			duration: 1200,  // Durée de l'animation en millisecondes
+			once: true       // L'animation ne se déclenche qu'une seule fois
+		});
+	</script>
+
 </body>
 
 </html>

@@ -15,6 +15,7 @@ body {
 	padding: 0 20px;
 }
 
+
 /* Header styles */
 header {
 	background-color: #1f1f1f;
@@ -46,6 +47,58 @@ header p {
 	/* Limiter la hauteur pour qu'elle soit bien proportionnée */
 }
 
+/* Style du bouton Toggle Theme */
+button {
+	background-color: #ff5733;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	font-size: 1.1rem;
+	border-radius: 30px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+
+	position: fixed; /* Positionnement absolu */
+    top: 20px;          /* À 20px du haut de la page */
+    right: 20px;        /* À 20px du côté droit de la page */
+    z-index: 10;        /* Assure que le bouton soit au-dessus des autres éléments */
+}
+
+button:hover {
+	background-color: #e84a2d;
+}
+
+button:focus {
+	outline: none;
+}
+
+button i {
+	font-size: 1.3rem;
+}
+
+/* Effet de transition pour le changement de thème */
+body {
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-mode {
+	background-color: #695f5f;
+	color: #333;
+}
+
+body.light-mode button {
+	background-color: #4CAF50;
+	color: #fff;
+}
+
+body.light-mode button:hover {
+	background-color: #45a049;
+}
+
+
 /* Main content styling */
 main {
 	max-width: 1200px;
@@ -64,35 +117,49 @@ main {
 }
 
 .dashed-list {
-	list-style: none; /* Supprime le style par défaut */
-	padding-left: 20px; /* Ajoute un décalage pour les éléments */
+	list-style: none;
+	/* Supprime le style par défaut */
+	padding-left: 20px;
+	/* Ajoute un décalage pour les éléments */
 }
 
 .dashed-list li {
-	position: relative; /* Position relative pour l'utilisation de ::before */
-	margin-bottom: 10px; /* Espace entre les items */
+	position: relative;
+	/* Position relative pour l'utilisation de ::before */
+	margin-bottom: 10px;
+	/* Espace entre les items */
 }
 
 .dashed-list li::before {
-	content: '•'; /* Définit un tiret */
-	color: #fff; /* Couleur du tiret */
-	font-weight: bold; /* Met le tiret en gras */
-	margin-right: 10px; /* Espace entre le tiret et le texte */
-	position: absolute; /* Place le tiret à gauche */
-	left: -20px; /* Ajuste la position du tiret */
+	content: '•';
+	/* Définit un tiret */
+	color: #fff;
+	/* Couleur du tiret */
+	font-weight: bold;
+	/* Met le tiret en gras */
+	margin-right: 10px;
+	/* Espace entre le tiret et le texte */
+	position: absolute;
+	/* Place le tiret à gauche */
+	left: -20px;
+	/* Ajuste la position du tiret */
 }
 
 a {
-	color: #ff5733; /* Couleur du lien non visité */
-	text-decoration: none; /* Supprime le soulignement */
+	color: #ff5733;
+	/* Couleur du lien non visité */
+	text-decoration: none;
+	/* Supprime le soulignement */
 }
 
 a:hover {
-	text-decoration: underline; /* Ajoute un soulignement au survol */
+	text-decoration: underline;
+	/* Ajoute un soulignement au survol */
 }
 
 a:visited {
-	color: #ff5733; /* Même couleur que les liens non visités */
+	color: #ff5733;
+	/* Même couleur que les liens non visités */
 }
 
 
@@ -259,4 +326,96 @@ ul li {
 	font-size: 1.2rem;
 	/* Larger font for list items */
 	margin-bottom: 8px;
+}
+
+/* Styles généraux pour la responsivité */
+body {
+	padding: 0 10px;
+	/* Réduit le padding sur les petits écrans */
+}
+
+/* Pour les écrans de moins de 768px (tablettes et téléphones) */
+@media (max-width: 768px) {
+	header {
+		padding: 20px;
+	}
+
+	header h1 {
+		font-size: 2rem;
+		/* Réduit la taille du texte principal */
+	}
+
+	header p {
+		font-size: 1rem;
+		/* Réduit la taille du sous-titre */
+	}
+
+	.learning-list {
+		flex-wrap: wrap;
+		/* Permet de passer en plusieurs lignes si nécessaire */
+		gap: 10px;
+		/* Réduit l'espace entre les éléments */
+	}
+
+	.github-and-skills {
+		flex-direction: column;
+		/* Empile les sections verticalement */
+		gap: 20px;
+	}
+
+	.project-list {
+		grid-template-columns: 1fr;
+		/* Une seule colonne pour les petits écrans */
+	}
+
+	.school-image {
+		max-height: 250px;
+		/* Réduit la hauteur de l'image sur mobile */
+	}
+
+	.section-title {
+		font-size: 1.5rem;
+		/* Réduit la taille des titres */
+		margin-bottom: 20px;
+	}
+
+	.project {
+		padding: 15px;
+		/* Réduit l'espace intérieur */
+	}
+
+	.project h3 {
+		font-size: 1.2rem;
+		/* Taille réduite pour les titres des projets */
+	}
+
+	footer {
+		padding: 10px;
+		/* Réduit le padding du pied de page */
+		font-size: 0.9rem;
+	}
+}
+
+/* Pour les écrans de moins de 480px (petits téléphones) */
+@media (max-width: 480px) {
+	header h1 {
+		font-size: 1.8rem;
+		/* Taille encore plus petite pour les très petits écrans */
+	}
+
+	.section-content,
+	.skills ul li {
+		font-size: 1rem;
+		/* Réduit la taille du texte */
+	}
+
+	.github-stats img {
+		width: 100%;
+		/* S'assure que l'image ne dépasse pas l'écran */
+	}
+
+	.learning-list div {
+		font-size: 1rem;
+		/* Réduit la taille du texte */
+	}
 }
