@@ -35,6 +35,17 @@ header p {
 	font-size: 1.1rem;
 }
 
+.school-image {
+	width: 100%;
+	height: auto;
+	max-width: 100%;
+	border-radius: 8px;
+	object-fit: cover;
+	/* Assurez-vous que l'image couvre bien l'espace sans déformer l'aspect */
+	max-height: 400px;
+	/* Limiter la hauteur pour qu'elle soit bien proportionnée */
+}
+
 /* Main content styling */
 main {
 	max-width: 1200px;
@@ -51,6 +62,39 @@ main {
 	text-transform: uppercase;
 	font-weight: bold;
 }
+
+.dashed-list {
+	list-style: none; /* Supprime le style par défaut */
+	padding-left: 20px; /* Ajoute un décalage pour les éléments */
+}
+
+.dashed-list li {
+	position: relative; /* Position relative pour l'utilisation de ::before */
+	margin-bottom: 10px; /* Espace entre les items */
+}
+
+.dashed-list li::before {
+	content: '•'; /* Définit un tiret */
+	color: #fff; /* Couleur du tiret */
+	font-weight: bold; /* Met le tiret en gras */
+	margin-right: 10px; /* Espace entre le tiret et le texte */
+	position: absolute; /* Place le tiret à gauche */
+	left: -20px; /* Ajuste la position du tiret */
+}
+
+a {
+	color: #ff5733; /* Couleur du lien non visité */
+	text-decoration: none; /* Supprime le soulignement */
+}
+
+a:hover {
+	text-decoration: underline; /* Ajoute un soulignement au survol */
+}
+
+a:visited {
+	color: #ff5733; /* Même couleur que les liens non visités */
+}
+
 
 /* Learning list as a horizontal row */
 .learning-list {
@@ -98,6 +142,47 @@ ul li {
 
 ul li i {
 	margin-right: 10px;
+}
+
+/* GitHub and Skills section - side by side */
+.github-and-skills {
+	display: flex;
+	gap: 50px;
+	/* Increased gap */
+	justify-content: space-between;
+	margin-bottom: 40px;
+}
+
+/* Skills section */
+.skills {
+	flex: 1;
+}
+
+.skills ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.skills li {
+	font-size: 1.1rem;
+	margin: 12px 0;
+}
+
+.skills li i {
+	margin-right: 10px;
+}
+
+/* GitHub stats section */
+.github-stats {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+}
+
+.github-stats img {
+	max-width: 100%;
+	/* Ensures that the image is responsive */
+	border-radius: 10px;
 }
 
 /* Project list styling */
