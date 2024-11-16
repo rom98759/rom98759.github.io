@@ -4,6 +4,7 @@ fetch('https://api.github.com/users/rom98759/repos')
 	.then(data => {
 		const projectsContainer = document.getElementById('github-projects');
 		data.forEach(repo => {
+			// Si le dépôt n'est pas 42-project-badges ou rom98759.github.io (ce sont des dépôts de badges de projet et de site Web respectivement) 
 			if (repo.name !== '42-project-badges' && repo.name !== 'rom98759.github.io') {
 				const projectDiv = document.createElement('div');
 				projectDiv.classList.add('project');
@@ -67,6 +68,7 @@ function toggleTheme() {
 		setTimeout(() => {
 			easterEgg.style.transform = 'translate(-50%, -50%) scale(3)'; // Fait grossir l'élément encore plus
 			easterEgg.style.textShadow = '2px 2px 10px rgba(0, 0, 0, 0)'; // Cache l'ombre
+			console.log('« The answer to the ultimate question of life, the universe and everything is 42 »');
 		}, 1000); // Attend 1s avant de lancer l'animation
 
 		// Lance animation shrink
