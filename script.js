@@ -44,8 +44,8 @@ function toggleTheme() {
 	// Incrémente le compteur de clics
 	clickCount++;
 
-	// Si l'utilisateur a cliqué 42 fois
-	if (clickCount === 5) {
+	// Si l'utilisateur a cliqué 10 fois
+	if (clickCount === 10) {
 		// Crée un élément avec le numéro 42
 		const easterEgg = document.createElement('div');
 		easterEgg.textContent = '42';
