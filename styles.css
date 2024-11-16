@@ -61,10 +61,14 @@ button {
 	align-items: center;
 	gap: 10px;
 
-	position: fixed; /* Positionnement absolu */
-    top: 20px;          /* À 20px du haut de la page */
-    right: 20px;        /* À 20px du côté droit de la page */
-    z-index: 10;        /* Assure que le bouton soit au-dessus des autres éléments */
+	position: fixed;
+	/* Positionnement absolu */
+	top: 20px;
+	/* À 20px du haut de la page */
+	right: 20px;
+	/* À 20px du côté droit de la page */
+	z-index: 10;
+	/* Assure que le bouton soit au-dessus des autres éléments */
 }
 
 button:hover {
@@ -418,4 +422,36 @@ body {
 		font-size: 1rem;
 		/* Réduit la taille du texte */
 	}
+}
+
+/* Animation de croissance */
+@keyframes grow {
+    0% {
+        font-size: 10rem;
+        opacity: 1;
+    }
+    100% {
+        font-size: 15rem; /* Taille maximale */
+        opacity: 1;
+    }
+}
+
+/* Animation de disparition */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Applique l'animation de croissance */
+.grow {
+    animation: grow 3s ease forwards;
+}
+
+/* Applique l'animation de disparition */
+.fadeOut {
+    animation: fadeOut 1s ease forwards;
 }

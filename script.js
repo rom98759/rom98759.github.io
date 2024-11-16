@@ -1,24 +1,3 @@
-// Function to dynamically add projects
-// function addProject(title, description) {
-// 	const projectList = document.querySelector('.project-list');
-// 	const projectDiv = document.createElement('div');
-// 	projectDiv.classList.add('project');
-
-// 	projectDiv.innerHTML = `
-//         <h3>${title}</h3>
-//         <p>${description}</p>
-//     `;
-
-// 	projectList.appendChild(projectDiv);
-// }
-
-// Add example projects dynamically
-// document.addEventListener('DOMContentLoaded', () => {
-// 	addProject('Libft', 'Developed a C library containing utility functions such as ft_atoi, ft_strdup, and more. Conforms to 42 coding standards.');
-// 	addProject('Get Next Line', 'Developed a program that reads a line of text from a file or standard input.');
-// 	addProject('Push Swap', 'Developed an optimized sorting algorithm to sort an array of numbers using two stacks.');
-// });
-
 
 fetch('https://api.github.com/users/rom98759/repos')
 	.then(response => response.json())
@@ -36,6 +15,9 @@ fetch('https://api.github.com/users/rom98759/repos')
 			}
 		});
 	});
+
+
+let clickCount = 0;  // Compteur de clics
 
 function toggleTheme() {
 	// Bascule entre les classes de mode
@@ -56,5 +38,48 @@ function toggleTheme() {
 		console.log('dark mode');
 		icon.classList.remove('fa-sun');
 		icon.classList.add('fa-moon'); // Icône de lune pour le mode sombre
+	}
+
+
+	// Incrémente le compteur de clics
+	clickCount++;
+
+	// Si l'utilisateur a cliqué 42 fois
+	if (clickCount === 5) {
+		// Crée un élément avec le numéro 42
+		const easterEgg = document.createElement('div');
+		easterEgg.textContent = '42';
+		easterEgg.style.position = 'fixed';
+		easterEgg.style.top = '50%';
+		easterEgg.style.left = '50%';
+		easterEgg.style.transform = 'translate(-50%, -50%)';
+		easterEgg.style.fontSize = '10rem';
+		easterEgg.style.fontWeight = 'bold';
+		easterEgg.style.color = '#ff5733'; // Couleur du texte
+		easterEgg.style.zIndex = '9999'; // S'assurer qu'il est au-dessus de tout
+		easterEgg.style.textShadow = '2px 2px 10px rgba(0, 0, 0, 0.5)';
+		easterEgg.style.transition = 'all 0.3s ease'; // Transition initiale
+
+		// Ajoute l'élément à la page
+		document.body.appendChild(easterEgg);
+
+		// Lance animation grow
+		setTimeout(() => {
+			easterEgg.style.transform = 'translate(-50%, -50%) scale(3)'; // Fait grossir l'élément encore plus
+			easterEgg.style.textShadow = '2px 2px 10px rgba(0, 0, 0, 0)'; // Cache l'ombre
+		}, 1000); // Attend 1s avant de lancer l'animation
+
+		// Lance animation shrink
+		setTimeout(() => {
+			easterEgg.style.transform = 'translate(-50%, -50%) scale(0)'; // Fait rétrécir l'élément
+		}, 2000); // Attend 2s avant de lancer l'animation
+
+		// Supprime l'élément après l'animation
+		setTimeout(() => {
+			easterEgg.remove();
+			clickCount = 0; // Réinitialise le compteur de clics
+		}, 2000); // Attend 2s avant de supprimer l'élément
+
+
 	}
 }
