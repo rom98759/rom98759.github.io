@@ -14,6 +14,8 @@ fetch('https://api.github.com/users/rom98759/repos')
 				`;
 				projectsContainer.appendChild(projectDiv);
 			}
+			const br = document.createElement('br');
+			projectsContainer.appendChild(br);
 		});
 	});
 
