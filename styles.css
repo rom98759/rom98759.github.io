@@ -49,7 +49,6 @@ header p {
 
 /* Style du bouton Toggle Theme */
 button {
-	/* background-color: #ff5733; */
 	color: #fff;
 	border: none;
 	padding: 6px 12px;
@@ -71,9 +70,9 @@ button {
 	/* Assure que le bouton soit au-dessus des autres éléments */
 }
 
-/* button:hover {
-	background-color: #e84a2d;
-} */
+button:hover {
+	background-color: #505050;
+}
 
 button:focus {
 	outline: none;
@@ -89,7 +88,83 @@ body {
 }
 
 body.light-mode {
-	background-color: #695f5f;
+	background-color: #ffffff;
+	color: #212121;
+}
+
+body.light-mode .section-title {
+	color: #000;
+}
+
+body.light-mode p strong {
+	color: #000;
+}
+
+
+body.light-mode .learning-list div,
+body.light-mode .section-content,
+body.light-mode .dashed-list li,
+body.light-mode .skills ul li,
+body.light-mode .project h3,
+body.light-mode .project p {
+	color: #212121;
+}
+
+body.light-mode .project {
+	background-color: #f9f9f9;
+	color: #333;
+	border-radius: 8px;
+	padding: 15px;
+	margin: 15px 0;
+}
+
+body.light-mode .project img {
+	border-radius: 8px;
+	width: 100%;
+	height: auto;
+	transition: transform 0.3s ease;
+}
+
+body.light-mode .project:hover img {
+	transform: scale(1.05);
+}
+
+body.light-mode .github-projects {
+	color: #333;
+}
+
+body.light-mode footer {
+	background-color: #f9f9f9;
+	color: #333;
+}
+
+body.light-mode footer p {
+	text-align: center;
+}
+/*
+body.light-mode .dashed-list li a  {
+	color: #69b011;
+	text-decoration: underline;
+}
+
+body.light-mode .dashed-list li a:visited  {
+	color: #69b011;
+}
+
+body.light-mode .dashed-list li a:hover  {
+	color: #69b011;
+}
+*/
+body.light-mode .dashed-list li::before {
+	color: #000;
+}
+
+body.light-mode .side-menu {
+	background-color: #f4f4f4;
+	color: #333;
+}
+
+body.light-mode .side-menu ul li a {
 	color: #333;
 }
 
@@ -97,48 +172,123 @@ body.light-mode button {
 	color: #fff;
 }
 
+body.light-mode button:hover {
+	background-color: #ddd;
+}
+
+body.light-mode .project {
+	background-color: #f4f4f4;
+	color: #333;
+}
+
+body.light-mode footer {
+	background-color: #f4f4f4;
+	color: #333;
+}
+
+body.light-mode button {
+	color: #fff;
+}
+
+body.light-mode button:hover {
+	background-color: #ddd;
+}
+
+body.light-mode .close-menu {
+	color: #000;
+}
+
+body.light-mode .menu-toggle {
+	color: #ffffff;
+}
+
+body.light-mode .menu-toggle:hover {
+	color: #333;
+}
+
+body.light-mode .close-menu:hover {
+	color: #333;
+}
+
+body.light-mode .menu-toggle i,
+body.light-mode .close-menu i {
+	color: #000;
+}
+
+body.light-mode .menu-toggle i:hover,
+body.light-mode .close-menu i:hover {
+	color: #333;
+}
+
+body.light-mode .learning-list div {
+	background-color: #f4f4f4;
+	color: #333;
+}
+
+body.light-mode .learning-list div i {
+	color: #333;
+}
+
+body.light-mode .learning-list div:hover {
+	background-color: #ddd;
+}
+
+
+
 
 /* Styles pour les boutons minimalistes (menu-toggle et close-menu) */
 .menu-toggle,
 .close-menu {
-	background: none; /* Aucun arrière-plan */
+	background: none;
+	/* Aucun arrière-plan */
 	border: none;
-	color: #fff; /* Couleur blanche pour l'icône */
+	color: #fff;
+	/* Couleur blanche pour l'icône */
 	padding: 0;
 	font-size: 1.5rem;
 	cursor: pointer;
-	position: absolute; /* Positionnement absolu */
-	display: flex; /* Alignement de l'icône */
+	position: absolute;
+	/* Positionnement absolu */
+	display: flex;
+	/* Alignement de l'icône */
 	align-items: center;
 	justify-content: center;
-	width: 40px; /* Taille fixe pour éviter une grande zone cliquable */
-	height: 40px; /* Taille fixe */
-	transition: color 0.3s ease; /* Transition uniquement sur la couleur */
+	width: 40px;
+	/* Taille fixe pour éviter une grande zone cliquable */
+	height: 40px;
+	/* Taille fixe */
+	transition: color 0.3s ease;
+	/* Transition uniquement sur la couleur */
 }
 
 .menu-toggle {
-	position: fixed; /* Positionnement fixe pour rester visible */
+	position: fixed;
+	/* Positionnement fixe pour rester visible */
 }
 
 /* Positionnement spécifique pour menu-toggle */
 .menu-toggle {
 	top: 20px;
 	left: 20px;
-	z-index: 10; /* Assure qu'il est au-dessus des autres éléments */
+	z-index: 10;
+	/* Assure qu'il est au-dessus des autres éléments */
 }
 
 /* Positionnement spécifique pour close-menu */
 .close-menu {
 	top: 10px;
 	right: 10px;
-	z-index: 999; /* Assure qu'il reste au-dessus du menu */
+	z-index: 999;
+	/* Assure qu'il reste au-dessus du menu */
 }
 
 /* Effet hover pour les boutons minimalistes */
 .menu-toggle:hover,
 .close-menu:hover {
-	color: #aaa; /* Changement subtil de couleur au survol */
-	background: none; /* Pas de changement de fond */
+	color: #aaa;
+	/* Changement subtil de couleur au survol */
+	background: none;
+	/* Pas de changement de fond */
 }
 
 /* Supprime le contour sur le focus */
@@ -150,12 +300,13 @@ body.light-mode button {
 /* Icônes des boutons minimalistes */
 .menu-toggle i,
 .close-menu i {
-	pointer-events: none; /* Évite que l'icône prenne le clic au lieu du bouton */
+	pointer-events: none;
+	/* Évite que l'icône prenne le clic au lieu du bouton */
 }
 
 /* Effet spécifique pour le bouton theme seulement */
 button:not(.menu-toggle):not(.close-menu) {
-	background-color: #000;
+	background-color: #444242;
 	color: #fff;
 	border: none;
 	padding: 6px 12px;
@@ -169,6 +320,7 @@ button:not(.menu-toggle):not(.close-menu) {
 	position: absolute;
 	top: 20px;
 	right: 20px;
+	/* Décalé un peu plus sur la gauche */
 	z-index: 10;
 }
 
@@ -176,10 +328,11 @@ button:not(.menu-toggle):not(.close-menu) {
 .side-menu {
 	position: fixed;
 	top: 0;
-	left: -250px; /* Hors écran par défaut */
+	left: -250px;
+	/* Hors écran par défaut */
 	width: 250px;
 	height: 100%;
-	background-color: #444;
+	background-color: #1f1f1f;
 	color: #fff;
 	box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
 	padding-top: 20px;
@@ -264,7 +417,7 @@ main {
 }
 
 a {
-	color: #ff5733;
+	color: #00ff51;
 	/* Couleur du lien non visité */
 	text-decoration: none;
 	/* Supprime le soulignement */
@@ -273,10 +426,11 @@ a {
 a:hover {
 	text-decoration: underline;
 	/* Ajoute un soulignement au survol */
+	color: #00ff51;
 }
 
 a:visited {
-	color: #ff5733;
+	color: #00ff51;
 	/* Même couleur que les liens non visités */
 }
 
@@ -469,17 +623,20 @@ body {
 	}
 
 	.side-menu {
-		width: 100%; /* Le menu prend toute la largeur sur mobile */
+		width: 100%;
+		/* Le menu prend toute la largeur sur mobile */
 	}
 
 	.menu-toggle {
-		font-size: 2rem; /* Augmente légèrement la taille du bouton */
+		font-size: 2rem;
+		/* Augmente légèrement la taille du bouton */
 	}
 
 	.close-menu {
 		top: 20px;
 		right: 20px;
-		font-size: 2rem; /* Assure une bonne visibilité */
+		font-size: 2rem;
+		/* Assure une bonne visibilité */
 	}
 
 	.learning-list {
@@ -550,39 +707,4 @@ body {
 		font-size: 1rem;
 		/* Réduit la taille du texte */
 	}
-}
-
-/* Animation de croissance */
-@keyframes grow {
-	0% {
-		font-size: 10rem;
-		opacity: 1;
-	}
-
-	100% {
-		font-size: 15rem;
-		/* Taille maximale */
-		opacity: 1;
-	}
-}
-
-/* Animation de disparition */
-@keyframes fadeOut {
-	0% {
-		opacity: 1;
-	}
-
-	100% {
-		opacity: 0;
-	}
-}
-
-/* Applique l'animation de croissance */
-.grow {
-	animation: grow 3s ease forwards;
-}
-
-/* Applique l'animation de disparition */
-.fadeOut {
-	animation: fadeOut 1s ease forwards;
 }
