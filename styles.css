@@ -141,6 +141,7 @@ body.light-mode footer {
 body.light-mode footer p {
 	text-align: center;
 }
+
 /*
 body.light-mode .dashed-list li a  {
 	color: #69b011;
@@ -623,8 +624,15 @@ body {
 	}
 
 	.side-menu {
+		width: 0;
+		/* Menu masqué par défaut */
+		/* L'animation va jouer lorsque le menu est ouvert */
+		transition: width 0.3s ease, transform 0.3s ease;
+	}
+
+	.side-menu.open {
 		width: 100%;
-		/* Le menu prend toute la largeur sur mobile */
+		/* Le menu prend toute la largeur quand il est ouvert */
 	}
 
 	.menu-toggle {

@@ -25,37 +25,72 @@ document.addEventListener("DOMContentLoaded", () => {
 	const sideMenu = document.getElementById("side-menu");
 	const menuLinks = document.querySelectorAll("#side-menu a");
 
-	// Ouvrir le menu
+	// ===================== Ouverture du menu =====================
 	menuToggle.addEventListener("click", () => {
-		sideMenu.classList.add("open"); // Ajoute la classe pour afficher le menu
+		// Ajoute la classe 'open' pour afficher le menu avec une animation
+		sideMenu.classList.add("open");
 	});
 
-	// Fermer le menu
+	// ===================== Fermeture du menu =====================
 	closeMenu.addEventListener("click", () => {
-		sideMenu.classList.remove("open"); // Retire la classe pour masquer le menu
+		// Retire la classe 'open' pour masquer le menu
+		sideMenu.classList.remove("open");
 	});
 
-	// Fermer le menu après la navigation
+	// ===================== Fermeture du menu après la navigation =====================
 	menuLinks.forEach(link => {
 		link.addEventListener("click", (e) => {
 			e.preventDefault(); // Empêche le comportement par défaut
+
 			const targetId = link.getAttribute("href").substring(1); // Récupère l'ID de la section cible
 			const targetSection = document.getElementById(targetId);
+
 			if (targetSection) {
-				// Ferme le menu après un léger délai
+				// Ferme le menu après un léger délai pour une navigation fluide
 				setTimeout(() => {
-					targetSection.scrollIntoView({ behavior: "smooth" }); // Défilement fluide
-				}, 300); // délai de 300ms pour assurer la fermeture du menu
+					targetSection.scrollIntoView({ behavior: "smooth" }); // Défilement fluide vers la section
+				}, 300); // délai de 300ms pour s'assurer de la fermeture du menu
 			}
-			sideMenu.classList.remove("open"); // Ferme le menu immédiatement
+
+			// Retirer la classe 'open' pour fermer le menu immédiatement
+			sideMenu.classList.remove("open");
 		});
 	});
-	// Fermer le menu si l'utilisateur clique en dehors
+
+	// ===================== Fermeture du menu si l'utilisateur clique en dehors =====================
 	document.addEventListener("click", (e) => {
 		if (sideMenu.classList.contains("open") && !sideMenu.contains(e.target) && !menuToggle.contains(e.target)) {
 			sideMenu.classList.remove("open"); // Ferme le menu si on clique à l'extérieur
 		}
 	});
+
+	// ===================== Fermeture automatique du menu sur redimensionnement de la fenêtre =====================
+	window.addEventListener("resize", () => {
+		// Si la largeur de la fenêtre devient supérieure à 768px (écran large), ferme le menu
+		if (window.innerWidth > 768) {
+			sideMenu.classList.remove("open");
+		}
+	});
+
+	// ===================== Amélioration du support tactile (mobile) =====================
+	menuLinks.forEach(link => {
+		// Sur les appareils tactiles, le menu se ferme après un toucher
+		link.addEventListener("touchstart", () => {
+			setTimeout(() => {
+				sideMenu.classList.remove("open");
+			}, 300); // Ajout d'un délai pour garantir une transition fluide
+		});
+	});
+
+	// ===================== Animation de la transition pour le menu =====================
+	// Ajouter un effet de transition lors de l'ouverture et fermeture du menu
+	sideMenu.style.transition = "transform 0.3s ease, opacity 0.3s ease";
+
+	// ===================== Fermer le menu automatiquement sur de très petits écrans =====================
+	// Si la largeur de la fenêtre devient très petite, fermer le menu automatiquement
+	if (window.innerWidth <= 768) {
+		sideMenu.classList.remove("open"); // Ferme le menu sur les petits écrans
+	}
 });
 
 
