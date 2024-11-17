@@ -1,10 +1,10 @@
-
+// ========== 1. Fetch et affichage des projets GitHub ==========
 fetch('https://api.github.com/users/rom98759/repos')
 	.then(response => response.json())
 	.then(data => {
 		const projectsContainer = document.getElementById('github-projects');
 		data.forEach(repo => {
-			// Si le dépôt n'est pas 42-project-badges ou rom98759.github.io (ce sont des dépôts de badges de projet et de site Web respectivement) 
+			// Exclusion des dépôts spécifiques
 			if (repo.name !== '42-project-badges' && repo.name !== 'rom98759.github.io') {
 				const projectDiv = document.createElement('div');
 				projectDiv.classList.add('project');
@@ -17,71 +17,104 @@ fetch('https://api.github.com/users/rom98759/repos')
 		});
 	});
 
+// ========== 2. Gestion du menu latéral ==========
+document.addEventListener("DOMContentLoaded", () => {
+	// Récupérer les éléments HTML
+	const menuToggle = document.getElementById("menu-toggle");
+	const closeMenu = document.getElementById("close-menu");
+	const sideMenu = document.getElementById("side-menu");
+	const menuLinks = document.querySelectorAll("#side-menu a");
 
-let clickCount = 0;  // Compteur de clics
+	// Ouvrir le menu
+	menuToggle.addEventListener("click", () => {
+		sideMenu.classList.add("open"); // Ajoute la classe pour afficher le menu
+	});
+
+	// Fermer le menu
+	closeMenu.addEventListener("click", () => {
+		sideMenu.classList.remove("open"); // Retire la classe pour masquer le menu
+	});
+
+	// Fermer le menu après la navigation
+	menuLinks.forEach(link => {
+		link.addEventListener("click", (e) => {
+			e.preventDefault(); // Empêche le comportement par défaut
+			const targetId = link.getAttribute("href").substring(1); // Récupère l'ID de la section cible
+			const targetSection = document.getElementById(targetId);
+			if (targetSection) {
+				// Ferme le menu après un léger délai
+				setTimeout(() => {
+					targetSection.scrollIntoView({ behavior: "smooth" }); // Défilement fluide
+				}, 300); // délai de 300ms pour assurer la fermeture du menu
+			}
+			sideMenu.classList.remove("open"); // Ferme le menu immédiatement
+		});
+	});
+	// Fermer le menu si l'utilisateur clique en dehors
+	document.addEventListener("click", (e) => {
+		if (sideMenu.classList.contains("open") && !sideMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+			sideMenu.classList.remove("open"); // Ferme le menu si on clique à l'extérieur
+		}
+	});
+});
+
+
+// ========== 3. Gestion du thème et Easter Egg ==========
+let clickCount = 0; // Compteur de clics
 
 function toggleTheme() {
-	// Bascule entre les classes de mode
+	// Bascule entre les classes pour les thèmes
 	document.body.classList.toggle('light-mode');
 	document.body.classList.toggle('dark-mode');
 
-	// Récupère l'icône
+	// Changer l'icône
 	const icon = document.getElementById('theme-icon');
-
-	// Change l'icône en fonction du mode
 	if (document.body.classList.contains('light-mode')) {
-		// print the current theme
-		console.log('light mode');
-		icon.classList.remove('fa-moon');
-		icon.classList.add('fa-sun'); // Icône de soleil pour le mode clair
+		icon.classList.replace('fa-moon', 'fa-sun'); // Soleil pour le mode clair
 	} else {
-		// print the current theme
-		console.log('dark mode');
-		icon.classList.remove('fa-sun');
-		icon.classList.add('fa-moon'); // Icône de lune pour le mode sombre
+		icon.classList.replace('fa-sun', 'fa-moon'); // Lune pour le mode sombre
 	}
 
-
-	// Incrémente le compteur de clics
+	// Gestion du Easter Egg après 10 clics
 	clickCount++;
-
-	// Si l'utilisateur a cliqué 10 fois
 	if (clickCount === 10) {
-		// Crée un élément avec le numéro 42
-		const easterEgg = document.createElement('div');
-		easterEgg.textContent = '42';
-		easterEgg.style.position = 'fixed';
-		easterEgg.style.top = '50%';
-		easterEgg.style.left = '50%';
-		easterEgg.style.transform = 'translate(-50%, -50%)';
-		easterEgg.style.fontSize = '10rem';
-		easterEgg.style.fontWeight = 'bold';
-		easterEgg.style.color = '#ff5733'; // Couleur du texte
-		easterEgg.style.zIndex = '9999'; // S'assurer qu'il est au-dessus de tout
-		easterEgg.style.textShadow = '2px 2px 10px rgba(0, 0, 0, 0.5)';
-		easterEgg.style.transition = 'all 0.3s ease'; // Transition initiale
-
-		// Ajoute l'élément à la page
-		document.body.appendChild(easterEgg);
-
-		// Lance animation grow
-		setTimeout(() => {
-			easterEgg.style.transform = 'translate(-50%, -50%) scale(3)'; // Fait grossir l'élément encore plus
-			easterEgg.style.textShadow = '2px 2px 10px rgba(0, 0, 0, 0)'; // Cache l'ombre
-			console.log('« The answer to the ultimate question of life, the universe and everything is 42 »');
-		}, 1000); // Attend 1s avant de lancer l'animation
-
-		// Lance animation shrink
-		setTimeout(() => {
-			easterEgg.style.transform = 'translate(-50%, -50%) scale(0)'; // Fait rétrécir l'élément
-		}, 2000); // Attend 2s avant de lancer l'animation
-
-		// Supprime l'élément après l'animation
-		setTimeout(() => {
-			easterEgg.remove();
-			clickCount = 0; // Réinitialise le compteur de clics
-		}, 2000); // Attend 2s avant de supprimer l'élément
-
-
+		displayEasterEgg();
+		clickCount = 0; // Réinitialiser le compteur
 	}
+}
+
+// Fonction pour afficher le Easter Egg
+function displayEasterEgg() {
+	const easterEgg = document.createElement('div');
+	easterEgg.textContent = '42';
+	easterEgg.style.cssText = `
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 10rem;
+		font-weight: bold;
+		color: #ff5733;
+		z-index: 9999;
+		text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+		transition: all 0.3s ease;
+	`;
+	document.body.appendChild(easterEgg);
+
+	// Animation d'agrandissement
+	setTimeout(() => {
+		easterEgg.style.transform = 'translate(-50%, -50%) scale(3)';
+		easterEgg.style.textShadow = '2px 2px 10px rgba(0, 0, 0, 0)';
+		console.log('« The answer to the ultimate question of life, the universe and everything is 42 »');
+	}, 1000);
+
+	// Animation de rétrécissement
+	setTimeout(() => {
+		easterEgg.style.transform = 'translate(-50%, -50%) scale(0)';
+	}, 2000);
+
+	// Suppression après l'animation
+	setTimeout(() => {
+		easterEgg.remove();
+	}, 3000);
 }

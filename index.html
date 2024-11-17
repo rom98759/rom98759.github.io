@@ -4,7 +4,7 @@
 	<link rel="icon" href="img/42.png" type="image/png" />
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Portfolio - Romain</title>
+	<title>Portfolio - Romain Caillier</title>
 	<link rel="stylesheet" href="styles.css" />
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
@@ -14,29 +14,70 @@
 
 <body>
 	<header>
-		<h1>Portfolio of Romain</h1>
+		<h1>Portfolio of Romain Caillier</h1>
 		<p>Software Development Student at 42 Angoulême</p>
+		<!-- Bouton pour le changement de thème -->
 		<button onclick="toggleTheme()">
 			<i id="theme-icon" class="fas fa-moon"></i>
 		</button>
+		<!-- Bouton pour ouvrir le menu -->
+		<button id="menu-toggle" class="menu-toggle">
+			<i class="fas fa-bars"></i>
+		</button>
+		<!-- Menu latéral -->
+		<nav id="side-menu" class="side-menu">
+			<!-- Bouton pour fermer le menu -->
+			<button id="close-menu" class="close-menu">
+				<i class="fas fa-times"></i>
+			</button>
+			<ul>
+				<li><a href="#about">About Me</a></li>
+				<li><a href="#github-and-skills">Skills</a></li>
+				<li><a href="#achievements">Achievements</a></li>
+				<li><a href="#projects">Projects</a></li>
+				<li><a href="#github-projects">GitHub Projects</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
 	</header>
 
+
 	<main>
-		<section class="about">
-			<div class="section-title">About Me</div>
+		<section id="about" class="about">
 			<img src="img/img_school.png" alt="42 School" class="school-image" />
-			<br />
-			<br />
+
+			<br /><br />
+
+			<div class="section-title">About Me</div>
 			<div class="section-content">
 				<p>
-					I am a software development student at 42 Angoulême, passionate
-					about cybersecurity and technical challenges. I am currently
-					learning C, Python, JavaScript, as well as web development with HTML
-					and CSS. Curious and motivated, I am also interested in code
-					optimization, algorithms, and solving complex problems. My goal is
-					to contribute to innovative projects and deepen my skills in
-					programming and cybersecurity.
+					I am a software development student at 42 Angoulême, passionate about cybersecurity and technical
+					challenges. Currently, I am learning C, Python, JavaScript, as well as web development with HTML and
+					CSS as part of my curriculum. My journey is driven by a strong interest in emerging technologies,
+					particularly artificial intelligence, and I am always seeking opportunities to expand my skills.
 				</p>
+
+				<p>
+					I had the opportunity to participate in RoboCup Junior, where I designed and programmed robots to
+					play soccer. This experience strengthened my abilities in embedded programming and algorithms, as I
+					worked on real-time challenges, optimizing the robots' performance while ensuring responsiveness and
+					accuracy.
+				</p>
+
+				<p>
+					Additionally, I participated in the CSAW competition as part of the RED team in CTF, a prestigious
+					cybersecurity competition. This experience allowed me to gain practical skills in cryptography,
+					vulnerability analysis, and exploit development, while also enhancing my teamwork and
+					problem-solving abilities under pressure.
+				</p>
+
+				<p>
+					My goal is to contribute to innovative projects, particularly in cybersecurity and AI, while
+					deepening my technical expertise and tackling increasingly ambitious challenges.
+				</p>
+
+				<br />
+
 				<p>🌱 <strong>Currently Learning:</strong></p>
 				<div class="learning-list">
 					<div><i class="fab fa-python"></i> Python</div>
@@ -66,22 +107,10 @@
 						environments.
 					</li>
 				</ul>
-
-				<p>📫 <strong>How to reach me:</strong></p>
-				<ul class="dashed-list">
-					<li>
-						Email:
-						<a href="mailto:rcaillie@student.42angouleme.fr">rcaillie@student.42angouleme.fr</a>
-					</li>
-					<li>
-						GitHub:
-						<a href="https://github.com/rom98759" target="_blank">rom98759</a>
-					</li>
-				</ul>
 			</div>
 		</section>
 
-		<section class="github-and-skills">
+		<section id="github-and-skills" class="github-and-skills">
 			<div class="skills">
 				<div class="section-title">Skills</div>
 				<ul>
@@ -95,30 +124,43 @@
 			</div>
 
 			<div class="github-stats">
-				<img src="https://github-readme-stats.vercel.app/api?username=rom98759&show_icons=true&rank_icon=github&hide=prs,issues&theme=dracula"
+				<img src="https://github-readme-stats.vercel.app/api?username=rom98759&show_icons=true&rank_icon=github&hide=prs,issues&theme=dark"
 					alt="Romain's GitHub Stats" />
 			</div>
 		</section>
 
-		<section class="achievements">
+		<section id="achievements" class="achievements">
 			<div class="section-title">Achievements</div>
 			<ul class="dashed-list">
 				<li>
 					Participated in the
-					<a href="https://www.csaw.io/" target="_blank">CSAW Competition</a>,
-					a Capture The Flag (CTF) competition for students.
+					<a href="https://www.csaw.io/" target="_blank">CSAW Competition</a> (RED TEAM CTF),
+					a prestigious Capture The Flag (CTF) competition focused on cybersecurity challenges, restricted to
+					teams in France. As part of a highly collaborative team, we ranked among the top 10 out of 150
+					teams. Our collective efforts involved tackling complex cybersecurity puzzles related to
+					cryptography, vulnerability analysis, and exploit development, where communication, coordination,
+					and teamwork were key to our success.
 				</li>
 				<li>
-					Participated as a member of the
+					Reached the final stage of the
 					<a href="https://www.robocup.org/" target="_blank">RoboCup Junior</a>
-					team, where we programmed robots to compete in international
-					robotics soccer competitions.
+					competition, a global robotics soccer event. Working closely with my team, we designed and
+					programmed autonomous robots to compete at the international level. Our success was driven by
+					efficient teamwork, from strategic planning to real-time decision-making and optimization, as we
+					worked together to tackle the dynamic and competitive environment.
+				</li>
+				<li>
+					Reached the final round of the RSK competition, demonstrating strong problem-solving and technical
+					skills as part of a team. Our collaboration and ability to divide tasks efficiently played a crucial
+					role in overcoming the challenges in this global competition.
 				</li>
 			</ul>
 		</section>
 
-		<section class="projects">
-			<div class="section-title">Projects</div>
+		<br />
+
+		<section id="projects" class="projects">
+			<div class="section-title">IT Projects</div>
 			<div class="project-list">
 				<div class="project">
 					<img src="img/libft.jpg" alt="Libft Project" />
@@ -174,9 +216,31 @@
 			</div>
 		</section>
 
-		<section class="github-projects">
+		<br />
+
+		<section id="github-projects" class="github-projects">
 			<div class="section-title">My GitHub Projects</div>
 			<div id="github-projects"></div>
+		</section>
+
+		<br />
+
+		<section id="contact" class="about">
+			<div class="section-title">Contact Me</div>
+				<ul class="dashed-list">
+					<li>
+						Email:
+						<a href="mailto:rcaillie@student.42angouleme.fr">rcaillie@student.42angouleme.fr</a>
+					</li>
+					<li>
+						GitHub:
+						<a href="https://github.com/rom98759" target="_blank">rom98759</a>
+					</li>
+					<li>
+						LinkedIn:
+						<a href="https://www.linkedin.com/in/romain-caillier/" target="_blank">Romain Caillier</a>
+					</li>
+				</ul>
 		</section>
 	</main>
 

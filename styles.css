@@ -49,7 +49,7 @@ header p {
 
 /* Style du bouton Toggle Theme */
 button {
-	background-color: #ff5733;
+	/* background-color: #ff5733; */
 	color: #fff;
 	border: none;
 	padding: 6px 12px;
@@ -71,9 +71,9 @@ button {
 	/* Assure que le bouton soit au-dessus des autres éléments */
 }
 
-button:hover {
+/* button:hover {
 	background-color: #e84a2d;
-}
+} */
 
 button:focus {
 	outline: none;
@@ -94,13 +94,127 @@ body.light-mode {
 }
 
 body.light-mode button {
-	background-color: #4CAF50;
 	color: #fff;
 }
 
-body.light-mode button:hover {
-	background-color: #45a049;
+
+/* Styles pour les boutons minimalistes (menu-toggle et close-menu) */
+.menu-toggle,
+.close-menu {
+	background: none; /* Aucun arrière-plan */
+	border: none;
+	color: #fff; /* Couleur blanche pour l'icône */
+	padding: 0;
+	font-size: 1.5rem;
+	cursor: pointer;
+	position: absolute; /* Positionnement absolu */
+	display: flex; /* Alignement de l'icône */
+	align-items: center;
+	justify-content: center;
+	width: 40px; /* Taille fixe pour éviter une grande zone cliquable */
+	height: 40px; /* Taille fixe */
+	transition: color 0.3s ease; /* Transition uniquement sur la couleur */
 }
+
+.menu-toggle {
+	position: fixed; /* Positionnement fixe pour rester visible */
+}
+
+/* Positionnement spécifique pour menu-toggle */
+.menu-toggle {
+	top: 20px;
+	left: 20px;
+	z-index: 10; /* Assure qu'il est au-dessus des autres éléments */
+}
+
+/* Positionnement spécifique pour close-menu */
+.close-menu {
+	top: 10px;
+	right: 10px;
+	z-index: 999; /* Assure qu'il reste au-dessus du menu */
+}
+
+/* Effet hover pour les boutons minimalistes */
+.menu-toggle:hover,
+.close-menu:hover {
+	color: #aaa; /* Changement subtil de couleur au survol */
+	background: none; /* Pas de changement de fond */
+}
+
+/* Supprime le contour sur le focus */
+.menu-toggle:focus,
+.close-menu:focus {
+	outline: none;
+}
+
+/* Icônes des boutons minimalistes */
+.menu-toggle i,
+.close-menu i {
+	pointer-events: none; /* Évite que l'icône prenne le clic au lieu du bouton */
+}
+
+/* Effet spécifique pour le bouton theme seulement */
+button:not(.menu-toggle):not(.close-menu) {
+	background-color: #000;
+	color: #fff;
+	border: none;
+	padding: 6px 12px;
+	font-size: 1rem;
+	border-radius: 25px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 10;
+}
+
+/* Menu déroulant */
+.side-menu {
+	position: fixed;
+	top: 0;
+	left: -250px; /* Hors écran par défaut */
+	width: 250px;
+	height: 100%;
+	background-color: #444;
+	color: #fff;
+	box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+	padding-top: 20px;
+	transition: left 0.3s ease;
+	z-index: 999;
+}
+
+.side-menu ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.side-menu ul li {
+	margin: 15px 0;
+}
+
+.side-menu ul li a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 1.2rem;
+	padding: 10px 20px;
+	display: block;
+}
+
+.side-menu ul li a:hover {
+	background-color: #555;
+	border-radius: 5px;
+}
+
+/* Classe pour afficher le menu */
+.side-menu.open {
+	left: 0;
+}
+
 
 
 /* Main content styling */
@@ -352,6 +466,20 @@ body {
 	header p {
 		font-size: 1rem;
 		/* Réduit la taille du sous-titre */
+	}
+
+	.side-menu {
+		width: 100%; /* Le menu prend toute la largeur sur mobile */
+	}
+
+	.menu-toggle {
+		font-size: 2rem; /* Augmente légèrement la taille du bouton */
+	}
+
+	.close-menu {
+		top: 20px;
+		right: 20px;
+		font-size: 2rem; /* Assure une bonne visibilité */
 	}
 
 	.learning-list {
