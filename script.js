@@ -1,51 +1,51 @@
 // ========== 1. Fetch et affichage des projets GitHub ==========
 fetch('https://api.github.com/users/rom98759/repos')
-    .then(response => response.json())
-    .then(data => {
-        const projectsContainer = document.getElementById('github-projects');
-        // Trier les dépôts par nombre du plus recent au moins recent
-        data.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+	.then(response => response.json())
+	.then(data => {
+		const projectsContainer = document.getElementById('github-projects');
+		// Trier les dépôts par nombre du plus recent au moins recent
+		data.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
 
-        // Filtrer les dépôts à exclure
-        const filteredData = data.filter(repo => !['rom98759', 'rom98759.github.io', '42-project-badges'].includes(repo.name));
+		// Filtrer les dépôts à exclure
+		const filteredData = data.filter(repo => !['rom98759', 'rom98759.github.io', '42-project-badges'].includes(repo.name));
 
-        // Limiter à 5 dépôts pour l'affichage
-        const projectsToShow = filteredData.slice(0, 5);
+		// Limiter à 5 dépôts pour l'affichage
+		const projectsToShow = filteredData.slice(0, 5);
 
-        // Si moins de 5 dépôts après filtrage, ajouter des dépôts supplémentaires
-        let index = 5;
-        while (projectsToShow.length < 5 && index < data.length) {
-            const repo = data[index];
-            if (!['rom98759', 'rom98759.github.io', '42-project-badges'].includes(repo.name)) {
-                projectsToShow.push(repo);
-            }
-            index++;
-        }
+		// Si moins de 5 dépôts après filtrage, ajouter des dépôts supplémentaires
+		let index = 5;
+		while (projectsToShow.length < 5 && index < data.length) {
+			const repo = data[index];
+			if (!['rom98759', 'rom98759.github.io', '42-project-badges'].includes(repo.name)) {
+				projectsToShow.push(repo);
+			}
+			index++;
+		}
 
-        projectsToShow.forEach(repo => {
-            const project = document.createElement('div');
-            project.classList.add('project');
-            project.innerHTML = `
-                <h3>${repo.name}</h3>
-                <p>${repo.description || 'No description provided.'}</p>
-                <div class="project-links">
-                    <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                    ${repo.homepage ? `
-                        <a href="${repo.homepage}" target="_blank" rel="noopener noreferrer">
-                            <i class="fas fa-external-link-alt"></i>
-                            <span>Live</span>
-                        </a>
-                    ` : ''}
-                </div>
-            `;
-            projectsContainer.appendChild(project);
-            const br = document.createElement('br');
-            projectsContainer.appendChild(br);
-        });
-    });
+		projectsToShow.forEach(repo => {
+			const project = document.createElement('div');
+			project.classList.add('project');
+			project.innerHTML = `
+				<h3>${repo.name}</h3>
+				<p>${repo.description || 'No description provided.'}</p>
+				<div class="project-links">
+					<a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">
+						<i class="fab fa-github"></i>
+						<span>GitHub</span>
+					</a>
+					${repo.homepage ? `
+						<a href="${repo.homepage}" target="_blank" rel="noopener noreferrer">
+							<i class="fas fa-external-link-alt"></i>
+							<span>Live</span>
+						</a>
+					` : ''}
+				</div>
+			`;
+			projectsContainer.appendChild(project);
+			const br = document.createElement('br');
+			projectsContainer.appendChild(br);
+		});
+	});
 
 
 // ========== 2. Gestion du menu latéral ==========
