@@ -482,12 +482,18 @@ body {
     white-space: nowrap;
 }
 
+/* À gauche : on place le texte à droite du point avec davantage d'espace */
 .timeline-item:nth-child(odd) .timeline-date {
-    left: 260px; /* Réduction de la distance */
+	left: 50%;
+	transform: translate(-120%, -50%);
+	text-align: right;
 }
 
+/* À droite : on place le texte à gauche du point avec davantage d'espace */
 .timeline-item:nth-child(even) .timeline-date {
-    right: 260px; /* Réduction de la distance */
+	left: 50%;
+	transform: translate(20%, -50%);
+	text-align: left;
 }
 
 .timeline-dot {
@@ -798,15 +804,16 @@ body {
         margin: 0 auto !important;
     }
 
-    .timeline-date {
-        position: static !important;
-        display: inline-block;
-        margin-bottom: 15px;
-        transform: none !important;
-    }
+	.timeline-date {
+		position: relative !important;
+		left: 50% !important;
+		transform: translateX(-50%) !important;
+		display: inline-block;
+		margin-bottom: 15px;
+	}
 
-    .timeline-line { display: none; }
-    .timeline-dot { display: none; }
+	.timeline-line { display: none; }
+	.timeline-dot { display: none; }
 }
 
 @media (max-width: 480px) {

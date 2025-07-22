@@ -17,10 +17,10 @@ function initializeTypingEffect() {
     const typingText = document.getElementById('typingText');
     const texts = [
         'Passionné de cybersécurité et d\'innovation technologique',
+        '↑↑↓↓←→←→BA',
         'Étudiant développeur à 42 Angoulême',
         'Spécialisé en C, Python et JavaScript',
-        'Créateur de solutions innovantes',
-		'↑↑↓↓←→←→BA'
+        'Créateur de solutions innovantes'
     ];
 
     let textIndex = 0;
