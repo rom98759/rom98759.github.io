@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	initializeProgressBars();
 	initializeContactForm();
 	initializeMobileMenu();
+	initializeHeroBackgroundAnimation();
 });
 
 // ===== EFFET DE FRAPPE ANIMÉ =====
@@ -281,6 +282,14 @@ function initializeAnimations() {
 			this.style.transform = 'translateY(0) rotate(0deg)';
 		});
 	});
+}
+
+// ===== ANIMATION FOND HERO SECTION =====
+function initializeHeroBackgroundAnimation() {
+	const hero = document.querySelector('.hero');
+	if (hero) {
+		hero.style.animation = 'gradientAnimation 15s ease infinite';
+	}
 }
 
 // ===== EASTER EGG =====
