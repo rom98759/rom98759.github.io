@@ -176,7 +176,7 @@ function initializeContactForm() {
 	const downloadCV = document.getElementById('downloadCV');
 
 	// Gestion du formulaire de contact
-	contactForm.addEventListener('submit', function (e) {
+	contactForm.addEventListener('submit', async function (e) {
 		e.preventDefault();
 
 		// Récupération des données du formulaire
@@ -186,9 +186,29 @@ function initializeContactForm() {
 		const subject = formData.get('subject');
 		const message = formData.get('message');
 
-		// Simulation d'envoi (ici vous pourriez intégrer un service d'email)
-		showNotification('Message envoyé avec succès! Je vous répondrai rapidement.', 'success');
-		contactForm.reset();
+		// Afficher notification d'envoi en cours
+		showNotification('Envoi du message en cours...', 'info');
+
+		try {
+			// Envoi du formulaire à Formspree
+			const response = await fetch('https://formspree.io/f/xwpqlvje', {
+				method: 'POST',
+				body: formData,
+				headers: {
+					'Accept': 'application/json'
+				}
+			});
+
+			if (response.ok) {
+				showNotification('Message envoyé avec succès! Je vous répondrai rapidement.', 'success');
+				contactForm.reset();
+			} else {
+				throw new Error('Erreur lors de l\'envoi');
+			}
+		} catch (error) {
+			console.error('Erreur:', error);
+			showNotification('Erreur lors de l\'envoi du message. Veuillez réessayer.', 'error');
+		}
 	});
 
 	// Téléchargement du CV (simulé)

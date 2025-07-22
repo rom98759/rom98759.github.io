@@ -119,7 +119,7 @@ Ajuster les barres de progression :
 
 ## 🐛 Fonctionnalités à Implémenter
 - [ ] Téléchargement de CV réel
-- [ ] Envoi de formulaire de contact
+- [x] Envoi de formulaire de contact
 - [ ] Mode sombre/clair
 - [ ] Multilingue (FR/EN)
 - [ ] Blog intégré
