@@ -44,9 +44,9 @@ Portfolio personnel moderne et responsive développé en HTML/CSS/JavaScript van
 ## 📁 Structure des Fichiers
 ```
 Portfolio/
-├── portfolio_moderne.html    # Nouveau portfolio HTML
-├── styles_moderne.css        # Styles CSS modernes
-├── script_moderne.js         # JavaScript interactif
+├── index.html    # Nouveau portfolio HTML
+├── styles.css        # Styles CSS modernes
+├── script.js         # JavaScript interactif
 ├── img/                     # Images du portfolio
 │   ├── 42.png               # Favicon
 │   ├── 42_ecole.jpg         # Photo école 42
@@ -55,7 +55,7 @@ Portfolio/
 │   ├── push_swap.jpg        # Image projet Push Swap
 │   ├── minitalk.png         # Image projet Minitalk
 │   └── B2B.jpg              # Image projet Born2beRoot
-└── README_moderne.md        # Documentation
+└── README.md        # Documentation
 ```
 
 ## 🎨 Palette de Couleurs
@@ -64,32 +64,6 @@ Portfolio/
 - **Accent**: #e74c3c (Rouge)
 - **Background**: #f8f9fa (Gris clair)
 - **Text**: #333 (Gris foncé)
-
-## 🚀 Installation et Utilisation
-
-### Prérequis
-- Navigateur web moderne
-- Serveur web local (optionnel)
-
-### Déploiement Local
-1. Cloner ou télécharger les fichiers
-2. Ouvrir `portfolio_moderne.html` dans un navigateur
-3. Ou servir via un serveur local :
-   ```bash
-   # Python
-   python -m http.server 8000
-
-   # Node.js
-   npx serve .
-
-   # PHP
-   php -S localhost:8000
-   ```
-
-### Déploiement GitHub Pages
-1. Renommer `portfolio_moderne.html` en `index.html`
-2. Commit et push vers GitHub
-3. Activer GitHub Pages dans les paramètres du repository
 
 ## 🎯 Fonctionnalités Avancées
 
@@ -150,6 +124,8 @@ Ajuster les barres de progression :
 - [ ] Multilingue (FR/EN)
 - [ ] Blog intégré
 - [ ] Analytics
+- [ ] Amélioration de la sécurité (CSP, XSS protection)
+
 
 ## 🎉 Easter Eggs
 - **Konami Code** : ↑↑↓↓←→←→BA pour un effet Matrix
